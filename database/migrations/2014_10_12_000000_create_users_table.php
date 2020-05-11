@@ -13,18 +13,29 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        Schema::create('type_user', function (Blueprint $table) {
+           $table->string('typeUserId', 5)->primary();
+           $table->string('name', 10);
+           $table->text('note')->nullable();
+            
+            $table->timestamps();
+        });
+
         Schema::create('users', function (Blueprint $table) {
             $table->string('userName', 30)->primary();
-            $table->string('password');
-            $table->string('fitstName');
-            $table->string('lastName');
-            $table->date('birthDate')->nullable();;
-            $table->boolean('sex')->nullable();;
-            $table->string('address')->nullable();;
-            $table->string('email')->unique();
-            $table->integer('level');
-            $table->boolean('status')->nullable();
+            $table->string('password', 20);
+            $table->string('fitstName', 50);
+            $table->string('lastName', 50);
+            $table->date('birthDate')->nullable();
+            $table->string('gender', 10)->nullable();
+            $table->string('address', 150);
+            $table->string('email', 150)->unique();
+            $table->string('typeUserId');
+            $table->string('status', 10)->nullable();
+            $table->date("createdDate");
             
+            $table->foreign('typeUserId')->references('typeUserId')->on('type_user');
+
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
@@ -39,5 +50,6 @@ class CreateUsersTable extends Migration
     public function down()
     {
         Schema::dropIfExists('users');
+        Schema::dropIfExists('typeUser');
     }
 }

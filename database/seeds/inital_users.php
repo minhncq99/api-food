@@ -11,7 +11,7 @@ class inital_users extends Seeder
      */
     public function run()
     {
-        //
+        /*
         for($i = 1; $i <= 5; $i++) {
             $sex = false;
             $status = false;
@@ -32,5 +32,7 @@ class inital_users extends Seeder
                 'status' => $status
             ]);
         }
+        */
+        
     }
 }
