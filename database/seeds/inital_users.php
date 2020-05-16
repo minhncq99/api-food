@@ -71,7 +71,7 @@ class inital_users extends Seeder
             DB::table('users')->insert([
                 'userName' => ($i + 1) .' userName',
                 'password' => 'password',
-                'fitstName'=> 'fitstName ' .Str::random(5),
+                'firstName'=> 'fitstName ' .Str::random(5),
                 'lastName' => 'lastName ' .Str::random(5),
                 'birthDate' => '2016-12-06',
                 'gender' => Str::random(3),

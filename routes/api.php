@@ -30,13 +30,13 @@ Route::prefix('Users')->group(function () {
      */
 
     //This is Read data use method GET
-    Route::get('/', 'Api\UsersController@index');
+    Route::post('get-all', 'Api\UserController@getAllUser');
 
     //This is Show a user use method GET with parameter id user
-    Route::get('/{id}', 'Api\UsersController@show');
+    Route::post('get-by-user-name', 'Api\UserController@getByUserName');
 
     //This is Create data
-    Route::post('/post', 'Api\UsersController@store');
+    Route::post('/update', 'Api\UserController@update');
 
     //This is Update data
     Route::put('/put/{id}', 'Api\UsersController@update');
