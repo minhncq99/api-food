@@ -19,9 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 /**
- * This route is config for API use table Users
+ * User
  * 
- * I use route group prefix with name Users so URL is ../api/Users/...
  */
 Route::prefix('Users')->group(function () {
     /**
@@ -29,19 +28,16 @@ Route::prefix('Users')->group(function () {
      * 
      */
 
-    //This is Read data use method GET
+    //Get all
     Route::post('get-all', 'Api\UserController@getAllUser');
 
-    //This is Show a user use method GET with parameter id user
+    //Get by userName
     Route::post('get-by-user-name', 'Api\UserController@getByUserName');
 
-    //This is Create data
-    Route::post('/update', 'Api\UserController@update');
+    //Update
+    Route::post('update', 'Api\UserController@update');
 
-    //This is Update data
-    Route::put('/put/{id}', 'Api\UsersController@update');
-
-    //This is Delete data
-    Route::delete('/delete/{id}', 'Api\UsersController@destroy');
+    //Create
+    Route::post('create', 'Api\UserController@create');
 
 });
