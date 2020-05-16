@@ -1,6 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\User;
+use App\Category;
+use App\Dish;
+use App\Order;
+use App\OrderDetail;
+use App\Promotion;
+use App\Restaurant;
+use App\TypeRestaurant;
+use App\TypeUser;
 
 /*
 |--------------------------------------------------------------------------
