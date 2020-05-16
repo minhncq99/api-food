@@ -41,3 +41,28 @@ Route::prefix('Users')->group(function () {
     Route::post('create', 'Api\UserController@create');
 
 });
+
+
+/**
+ * User
+ * 
+ */
+Route::prefix('TypeUser')->group(function () {
+    /**
+     * This table has CRUD
+     * 
+     */
+
+    //Get all
+    Route::post('get-all', 'Api\TypeUserController@getAll');
+
+    //Get by userName
+    Route::post('get-by-type-user-id', 'Api\TypeUserController@getOne');
+
+    //Update
+    Route::post('update', 'Api\TypeUserController@update');
+
+    //Create
+    Route::post('create', 'Api\TypeUserController@create');
+
+});

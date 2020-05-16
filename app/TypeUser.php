@@ -7,23 +7,23 @@ use Illuminate\Database\Eloquent\Model;
 class TypeUser extends Model
 {
     //
-    protected $table = 'users';
+    protected $table = 'type_user';
 
-    protected $primaryKey = 'userName';
+    protected $primaryKey = 'typeUserId';
 
     public $incrementing = false;
 
     protected $keyType = 'string';
 
     protected $fillable = [
-        'typeUser', 'name', 'note'
+        'typeUserId', 'name', 'note'
     ];
 
     public $timestamps = false;
 
     public function user()
     {
-        return $this->hasMany('App\User', 'typeUserId');
+        return $this->hasMany('App\User');
     }
 
 }
