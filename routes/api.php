@@ -56,16 +56,16 @@ Route::prefix('TypeUser')->group(function () {
      */
 
     //Get all
-    Route::post('get-all', 'Api\TypeUserController@getAll');
+    Route::post('get-all', 'API\TypeUserController@getAll');
 
     //Get by userName
-    Route::post('get-by-type-user-id', 'Api\TypeUserController@getOne');
+    Route::post('get-by-type-user-id', 'API\TypeUserController@getOne');
 
     //Update
-    Route::post('update', 'Api\TypeUserController@update');
+    Route::post('update', 'API\TypeUserController@update');
 
     //Create
-    Route::post('create', 'Api\TypeUserController@create');
+    Route::post('create', 'API\TypeUserController@create');
 
 });
 
@@ -80,16 +80,16 @@ Route::prefix('Restaurant')->group(function () {
      */
 
     //Get all
-    Route::post('get-all', 'Api\RestaurantController@getAll');
+    Route::post('get-all', 'API\RestaurantController@getAll');
 
     //Get by userName
-    Route::post('get-by-restaurant-id', 'Api\RestaurantController@getOne');
+    Route::post('get-by-restaurant-id', 'API\RestaurantController@getOne');
 
     //Update
-    Route::post('update', 'Api\RestaurantController@update');
+    Route::post('update', 'API\RestaurantController@update');
 
     //Create
-    Route::post('create', 'Api\RestaurantController@create');
+    Route::post('create', 'API\RestaurantController@create');
 
 });
 
@@ -105,16 +105,16 @@ Route::prefix('Dish')->group(function () {
      */
 
     //Get all
-    Route::post('get-all', 'Api\DishController@getAll');
+    Route::post('get-all', 'API\DishController@getAll');
 
     //Get by userName
-    Route::post('get-by-dish-id', 'Api\DishController@getOne');
+    Route::post('get-by-dish-id', 'API\DishController@getOne');
 
     //Update
-    Route::post('update', 'Api\DishController@update');
+    Route::post('update', 'API\DishController@update');
 
     //Create
-    Route::post('create', 'Api\DishController@create');
+    Route::post('create', 'API\DishController@create');
 
 });
 
@@ -129,15 +129,15 @@ Route::prefix('Category')->group(function () {
      */
 
     //Get all
-    Route::post('get-all', 'Api\CategoryController@getAll');
+    Route::post('get-all', 'API\CategoryController@getAll');
 
     //Get by userName
-    Route::post('get-by-category-id', 'Api\CategoryController@getOne');
+    Route::post('get-by-category-id', 'API\CategoryController@getOne');
 
     //Update
-    Route::post('update', 'Api\CategoryController@update');
+    Route::post('update', 'API\CategoryController@update');
 
     //Create
-    Route::post('create', 'Api\CategoryController@create');
+    Route::post('create', 'API\CategoryController@create');
 
 });
