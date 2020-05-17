@@ -31,16 +31,16 @@ Route::prefix('Users')->group(function () {
      */
 
     //Get all
-    Route::post('get-all', 'Api\UserController@getAllUser');
+    Route::post('get-all', 'API\UserController@getAllUser');
 
     //Get by userName
-    Route::post('get-by-user-name', 'Api\UserController@getByUserName');
+    Route::post('get-by-user-name', 'API\UserController@getByUserName');
 
     //Update
-    Route::post('update', 'Api\UserController@update');
+    Route::post('update', 'API\UserController@update');
 
     //Create
-    Route::post('create', 'Api\UserController@create');
+    Route::post('create', 'API\UserController@create');
 
 });
 
