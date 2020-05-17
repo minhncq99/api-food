@@ -115,3 +115,27 @@ Route::prefix('Dish')->group(function () {
     Route::post('create', 'Api\DishController@create');
 
 });
+
+/**
+ * Category
+ * 
+ */
+Route::prefix('Category')->group(function () {
+    /**
+     * This table has CRUD
+     * 
+     */
+
+    //Get all
+    Route::post('get-all', 'Api\CategoryController@getAll');
+
+    //Get by userName
+    Route::post('get-by-category-id', 'Api\CategoryController@getOne');
+
+    //Update
+    Route::post('update', 'Api\CategoryController@update');
+
+    //Create
+    Route::post('create', 'Api\CategoryController@create');
+
+});
