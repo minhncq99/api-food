@@ -44,7 +44,7 @@ Route::prefix('Users')->group(function () {
 
 
 /**
- * User
+ * TypeUser
  * 
  */
 Route::prefix('TypeUser')->group(function () {
@@ -64,5 +64,54 @@ Route::prefix('TypeUser')->group(function () {
 
     //Create
     Route::post('create', 'Api\TypeUserController@create');
+
+});
+
+/**
+ * Restaurant
+ * 
+ */
+Route::prefix('Restaurant')->group(function () {
+    /**
+     * This table has CRUD
+     * 
+     */
+
+    //Get all
+    Route::post('get-all', 'Api\RestaurantController@getAll');
+
+    //Get by userName
+    Route::post('get-by-restaurant-id', 'Api\RestaurantController@getOne');
+
+    //Update
+    Route::post('update', 'Api\RestaurantController@update');
+
+    //Create
+    Route::post('create', 'Api\RestaurantController@create');
+
+});
+
+
+/**
+ * Dish
+ * 
+ */
+Route::prefix('Dish')->group(function () {
+    /**
+     * This table has CRUD
+     * 
+     */
+
+    //Get all
+    Route::post('get-all', 'Api\DishController@getAll');
+
+    //Get by userName
+    Route::post('get-by-dish-id', 'Api\DishController@getOne');
+
+    //Update
+    Route::post('update', 'Api\DishController@update');
+
+    //Create
+    Route::post('create', 'Api\DishController@create');
 
 });
