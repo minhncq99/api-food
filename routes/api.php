@@ -191,7 +191,7 @@ Route::prefix('Promotion')->group(function () {
 });
 
 /**
- * Promotion
+ * Promotion Detail
  * 
  */
 Route::prefix('PromotionDetail')->group(function () {
@@ -214,5 +214,29 @@ Route::prefix('PromotionDetail')->group(function () {
 
     //Create
     Route::post('create', 'API\PromotionDetailController@create');
+
+});
+
+/**
+ * Order
+ * 
+ */
+Route::prefix('Order')->group(function () {
+    /**
+     * This table has CRUD
+     * 
+     */
+
+    //Get all
+    Route::post('get-all', 'API\OrdersController@getAll');
+
+    //Get by Promotion Id
+    Route::post('get-by-order-id', 'API\OrdersController@getOne');
+
+    //Update
+    Route::post('update', 'API\OrdersController@update');
+
+    //Create
+    Route::post('create', 'API\OrdersController@create');
 
 });
