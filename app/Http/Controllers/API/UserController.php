@@ -13,7 +13,7 @@ class UserController extends Controller
     /**
      * Get All user
      */
-    function getAllUser(){
+    public function getAllUser(){
         try{
             $data = DB::table('users')->get();
             $error = null;
@@ -97,6 +97,6 @@ class UserController extends Controller
            $data = null;
            $error = $ex;
        }
-       return response()->json(['data' => $data, 'error' => $error, 'req' => $req]);
+       return response()->json(['data' => $data, 'error' => $error]);
    }
 }

@@ -5,17 +5,16 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Dish;
+use App\Promotion;
 
-
-class DishController extends Controller
+class PromotionController extends Controller
 {
     /**
-     * Get All Dish
+     * Get All Promotion
      */
     public function getAll(){
         try{
-            $data = DB::table('dishes')->get();
+            $data = DB::table('promotions')->get();
             $error = null;
         }
         catch(Exception $ex){
@@ -26,12 +25,12 @@ class DishController extends Controller
     }
 
     /**
-     * Get Dish by Dish ID
+     * Get Promotion by Promotion id
      */
     public function getOne(Request $req)
     {
         try{
-            $data = DB::table('dishes')->where('dishId', $req->dishId)->first();
+            $data = DB::table('promotions')->where('promotionId', $req->promotionId)->first();
             $error = null;
         }
         catch(Exception $ex){
@@ -42,20 +41,20 @@ class DishController extends Controller
     }
 
     /**
-     * Update User
+     * Update Promotion
      */
     public function update(Request $req)
     {
         try{
-            $data = DB::table('dishes')
-                ->where('dishId', $req->dishId)
+            $data = DB::table('promotions')
+                ->where('promotionId', $req->promotionId)
                 ->update([
                     'name' => $req->name,
-                    'createdDate'=> $req->createdDate,
-                    'unit' => $req->unit,
-                    'note'=> $req->note,
-                    'categoryId' => $req->categoryId,
-                    'restaurantId'=> $req->restaurantId,
+                    'amount' => $req->amount,
+                    'openDate' => $req->openDate,
+                    'closeDate' => $req->closeDate,
+                    'note' => $req->note,
+                    'adminId' => $req->adminId,
                     ]);
             $error = null;
         }
@@ -66,20 +65,20 @@ class DishController extends Controller
         return response()->json(['data' => $data, 'error' => $error]);
     }
     /** 
-    * Create User
+    * Create Promotion
     */
    public function create(Request $req)
    {
        try{
-            $data = new Dish;
+            $data = new Promotion;
 
-            $data->dishId = $req->dishId;
+            $data->promotionId = $req->promotionId;
             $data->name = $req->name;
-            $data->createdDate = $req->createdDate;
-            $data->unit = $req->unit;
+            $data->amount = $req->amount;
+            $data->openDate = $req->openDate;
+            $data->closeDate = $req->closeDate;
             $data->note = $req->note;
-            $data->categoryId = $req->categoryId;
-            $data->restaurantId = $req->restaurantId;
+            $data->adminId = $req->adminId;
             
             $data->save();
 

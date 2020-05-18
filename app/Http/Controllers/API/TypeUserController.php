@@ -12,7 +12,7 @@ class TypeUserController extends Controller
     /**
      * Get All user
      */
-    function getAll(){
+    public function getAll(){
         try{
             $data = DB::table('type_user')->get();
             $error = null;
@@ -80,6 +80,6 @@ class TypeUserController extends Controller
            $data = null;
            $error = $ex;
        }
-       return response()->json(['data' => $data, 'error' => $error, 'req' => $req]);
+       return response()->json(['data' => $data, 'error' => $error]);
    }
 }

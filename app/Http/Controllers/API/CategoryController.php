@@ -12,7 +12,7 @@ class CategoryController extends Controller
     /**
      * Get All Categoties
      */
-    function getAll(){
+    public function getAll(){
         try{
             $data = DB::table('categories')->get();
             $error = null;

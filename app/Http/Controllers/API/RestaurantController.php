@@ -12,7 +12,7 @@ class RestaurantController extends Controller
     /**
      * Get All Restaurant
      */
-    function getAll(){
+    public function getAll(){
         try{
             $data = DB::table('restaurants')->get();
             $error = null;

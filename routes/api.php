@@ -93,6 +93,30 @@ Route::prefix('Restaurant')->group(function () {
 
 });
 
+/**
+ * Type Restaurant
+ * 
+ */
+Route::prefix('TypeRestaurant')->group(function () {
+    /**
+     * This table has CRUD
+     * 
+     */
+
+    //Get all
+    Route::post('get-all', 'API\TypeRestaurantController@getAll');
+
+    //Get by userName
+    Route::post('get-by-type-restaurant-id', 'API\TypeRestaurantController@getOne');
+
+    //Update
+    Route::post('update', 'API\TypeRestaurantController@update');
+
+    //Create
+    Route::post('create', 'API\TypeRestaurantController@create');
+
+});
+
 
 /**
  * Dish
@@ -139,5 +163,29 @@ Route::prefix('Category')->group(function () {
 
     //Create
     Route::post('create', 'API\CategoryController@create');
+
+});
+
+/**
+ * Promation
+ * 
+ */
+Route::prefix('Promotion')->group(function () {
+    /**
+     * This table has CRUD
+     * 
+     */
+
+    //Get all
+    Route::post('get-all', 'API\PromotionController@getAll');
+
+    //Get by userName
+    Route::post('get-by-promotion-id', 'API\PromotionController@getOne');
+
+    //Update
+    Route::post('update', 'API\PromotionController@update');
+
+    //Create
+    Route::post('create', 'API\PromotionController@create');
 
 });
