@@ -30,7 +30,7 @@ class RestaurantController extends Controller
     public function getOne(Request $req)
     {
         try{
-            $data = DB::table('restaurants')->where('restaurantId', $req->restaurantId)->first();
+            $data = DB::table('restaurants')->where('restaurantId', $req->restaurantId)->get();
             $error = null;
         }
         catch(Exception $ex){

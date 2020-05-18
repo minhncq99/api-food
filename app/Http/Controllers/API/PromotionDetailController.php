@@ -31,7 +31,7 @@ class PromotionDetailController extends Controller
     public function getOneByPromotion(Request $req)
     {
         try{
-            $data = DB::table('promotion_details')->where('promotionId', $req->promotionId)->first();
+            $data = DB::table('promotion_details')->where('promotionId', $req->promotionId)->get();
             $error = null;
         }
         catch(Exception $ex){
@@ -47,7 +47,7 @@ class PromotionDetailController extends Controller
     public function getOneByRestaurant(Request $req)
     {
         try{
-            $data = DB::table('promotion_details')->where('restaurantId', $req->restaurantId)->first();
+            $data = DB::table('promotion_details')->where('restaurantId', $req->restaurantId)->get();
             $error = null;
         }
         catch(Exception $ex){

@@ -31,7 +31,7 @@ class OrdersController extends Controller
     public function getOne(Request $req)
     {
         try{
-            $data = DB::table('orders')->where('orderId', $req->orderId)->first();
+            $data = DB::table('orders')->where('orderId', $req->orderId)->get();
             $error = null;
         }
         catch(Exception $ex){

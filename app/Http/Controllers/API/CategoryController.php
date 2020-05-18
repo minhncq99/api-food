@@ -30,7 +30,7 @@ class CategoryController extends Controller
     public function getOne(Request $req)
     {
         try{
-            $data = DB::table('categories')->where('categoryId', $req->categoryId)->first();
+            $data = DB::table('categories')->where('categoryId', $req->categoryId)->get();
             $error = null;
         }
         catch(Exception $ex){

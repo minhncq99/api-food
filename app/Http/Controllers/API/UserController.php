@@ -31,7 +31,7 @@ class UserController extends Controller
     public function getByUserName(Request $req)
     {
         try{
-            $data = DB::table('users')->where('userName', $req->userName)->first();
+            $data = DB::table('users')->where('userName', $req->userName)->get();
             $error = null;
         }
         catch(Exception $ex){

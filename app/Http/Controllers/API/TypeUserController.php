@@ -30,7 +30,7 @@ class TypeUserController extends Controller
     public function getOne(Request $req)
     {
         try{
-            $data = DB::table('type_user')->where('typeUserId', $req->typeUserId)->first();
+            $data = DB::table('type_user')->where('typeUserId', $req->typeUserId)->get();
             $error = null;
         }
         catch(Exception $ex){

@@ -30,7 +30,7 @@ class PromotionController extends Controller
     public function getOne(Request $req)
     {
         try{
-            $data = DB::table('promotions')->where('promotionId', $req->promotionId)->first();
+            $data = DB::table('promotions')->where('promotionId', $req->promotionId)->get();
             $error = null;
         }
         catch(Exception $ex){

@@ -240,3 +240,28 @@ Route::prefix('Order')->group(function () {
     Route::post('create', 'API\OrdersController@create');
 
 });
+
+
+/**
+ * Order
+ * 
+ */
+Route::prefix('OrderDetail')->group(function () {
+    /**
+     * This table has CRUD
+     * 
+     */
+
+    //Get all
+    Route::post('get-all', 'API\OrderDetailController@getAll');
+
+    //Get by Promotion Id
+    Route::post('get-by-dish-id', 'API\OrderDetailController@getOneByDish');
+
+    //Get by Order Id
+    Route::post('get-by-order-id', 'API\OrderDetailController@getOneByOrder');
+
+    //Create
+    Route::post('create', 'API\OrderDetailController@create');
+
+});

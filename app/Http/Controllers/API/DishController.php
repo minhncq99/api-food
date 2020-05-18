@@ -31,7 +31,7 @@ class DishController extends Controller
     public function getOne(Request $req)
     {
         try{
-            $data = DB::table('dishes')->where('dishId', $req->dishId)->first();
+            $data = DB::table('dishes')->where('dishId', $req->dishId)->get();
             $error = null;
         }
         catch(Exception $ex){
