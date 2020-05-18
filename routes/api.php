@@ -167,7 +167,7 @@ Route::prefix('Category')->group(function () {
 });
 
 /**
- * Promation
+ * Promotion
  * 
  */
 Route::prefix('Promotion')->group(function () {
@@ -187,5 +187,32 @@ Route::prefix('Promotion')->group(function () {
 
     //Create
     Route::post('create', 'API\PromotionController@create');
+
+});
+
+/**
+ * Promotion
+ * 
+ */
+Route::prefix('PromotionDetail')->group(function () {
+    /**
+     * This table has CRUD
+     * 
+     */
+
+    //Get all
+    Route::post('get-all', 'API\PromotionDetailController@getAll');
+
+    //Get by Promotion Id
+    Route::post('get-by-promotion-id', 'API\PromotionDetailController@getOneByPromotion');
+
+    //Get by Restaurant Id
+    Route::post('get-by-restaurant-id', 'API\PromotionDetailController@getOneByRestaurant');
+
+    //Update
+    Route::post('update', 'API\PromotionDetailController@update');
+
+    //Create
+    Route::post('create', 'API\PromotionDetailController@create');
 
 });
