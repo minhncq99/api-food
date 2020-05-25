@@ -17,8 +17,7 @@ class CreateUsersTable extends Migration
            $table->string('typeUserId', 5)->primary();
            $table->string('name', 10);
            $table->text('note')->nullable();
-            
-            $table->timestamps();
+           $table->timestamps();
         });
 
         Schema::create('users', function (Blueprint $table) {
@@ -30,10 +29,10 @@ class CreateUsersTable extends Migration
             $table->string('gender', 10)->nullable();
             $table->string('address', 150);
             $table->string('email', 150)->unique();
-            $table->string('typeUserId');
-            $table->string('status', 10)->nullable();
+            $table->string('typeUserId', 5);
+            $table->string('status', 50)->nullable();
             $table->date("createdDate");
-            
+
             $table->foreign('typeUserId')->references('typeUserId')->on('type_user');
 
             $table->timestamp('email_verified_at')->nullable();
