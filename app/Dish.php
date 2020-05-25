@@ -20,19 +20,19 @@ class Dish extends Model
 
     public function restaurant()
     {
-        return $this->belongsToMany('App\Restaurant', 'restaurantId');
+        return $this->belongsTo('App\Restaurant', 'restaurantId');
     }
 
     public function category()
     {
-        return $this->belongsToMany('App\Cregory', 'categoryId');
+        return $this->belongsTo('App\Cregory', 'categoryId');
     }
 
     public function orderDetails()
     {
         return $this->hasMany('App\OrderDetail');
     }
-    
+
 
     public $timestamps = false;
 }

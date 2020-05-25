@@ -22,12 +22,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 /**
  * User
- * 
+ *
  */
 Route::prefix('Users')->group(function () {
     /**
      * This table has CRUD
-     * 
+     *
      */
 
     //Get all
@@ -47,12 +47,12 @@ Route::prefix('Users')->group(function () {
 
 /**
  * TypeUser
- * 
+ *
  */
 Route::prefix('TypeUser')->group(function () {
     /**
      * This table has CRUD
-     * 
+     *
      */
 
     //Get all
@@ -71,12 +71,12 @@ Route::prefix('TypeUser')->group(function () {
 
 /**
  * Restaurant
- * 
+ *
  */
 Route::prefix('Restaurant')->group(function () {
     /**
      * This table has CRUD
-     * 
+     *
      */
 
     //Get all
@@ -95,12 +95,12 @@ Route::prefix('Restaurant')->group(function () {
 
 /**
  * Type Restaurant
- * 
+ *
  */
 Route::prefix('TypeRestaurant')->group(function () {
     /**
      * This table has CRUD
-     * 
+     *
      */
 
     //Get all
@@ -120,12 +120,12 @@ Route::prefix('TypeRestaurant')->group(function () {
 
 /**
  * Dish
- * 
+ *
  */
 Route::prefix('Dish')->group(function () {
     /**
      * This table has CRUD
-     * 
+     *
      */
 
     //Get all
@@ -144,12 +144,12 @@ Route::prefix('Dish')->group(function () {
 
 /**
  * Category
- * 
+ *
  */
 Route::prefix('Category')->group(function () {
     /**
      * This table has CRUD
-     * 
+     *
      */
 
     //Get all
@@ -168,12 +168,12 @@ Route::prefix('Category')->group(function () {
 
 /**
  * Promotion
- * 
+ *
  */
 Route::prefix('Promotion')->group(function () {
     /**
      * This table has CRUD
-     * 
+     *
      */
 
     //Get all
@@ -192,12 +192,12 @@ Route::prefix('Promotion')->group(function () {
 
 /**
  * Promotion Detail
- * 
+ *
  */
 Route::prefix('PromotionDetail')->group(function () {
     /**
      * This table has CRUD
-     * 
+     *
      */
 
     //Get all
@@ -219,12 +219,12 @@ Route::prefix('PromotionDetail')->group(function () {
 
 /**
  * Order
- * 
+ *
  */
 Route::prefix('Order')->group(function () {
     /**
      * This table has CRUD
-     * 
+     *
      */
 
     //Get all
@@ -239,17 +239,19 @@ Route::prefix('Order')->group(function () {
     //Create
     Route::post('create', 'API\OrdersController@create');
 
+    //Get By status
+    Route::post('get-by-status', 'API\OrdersController@GetByStatus');
 });
 
 
 /**
  * Order
- * 
+ *
  */
 Route::prefix('OrderDetail')->group(function () {
     /**
      * This table has CRUD
-     * 
+     *
      */
 
     //Get all

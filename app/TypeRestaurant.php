@@ -19,5 +19,9 @@ class TypeRestaurant extends Model
         'typeRestaurantId', 'name', 'note'
     ];
 
+    public function restaurants(){
+      return $this->hasMany('App\Restaurant');
+    }
+
     public $timestamps = false;
 }

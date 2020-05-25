@@ -13,12 +13,14 @@ class seed_dishes extends Seeder
     {
         //
         for($i = 1; $i <= 5; $i++) {
- 
+
             DB::table('dishes')->insert([
                 'dishId' => $i .' dishId',
                 'name'=> 'name ' .Str::random(5),
                 'createdDate' => date("Y-m-d"),
                 'note' => $i .' note',
+                'price' => 10000,
+                'status' => $i .'status',
                 'categoryId' => $i .' categoryId',
                 'restaurantId' => $i .' restaurantId',
             ]);

@@ -14,7 +14,7 @@ class Promotion extends Model
     public $incrementing = false;
 
     protected $keyType = 'string';
-    
+
     protected $fillable = [
         'promotionId', 'name', 'amount', 'openDate', 'closeDate', 'note', 'adminId'
     ];
@@ -23,6 +23,6 @@ class Promotion extends Model
 
     public function users()
     {
-        return $this->belongsToMany('App\User', 'adminId');
+        return $this->belongsTo('App\User', 'adminId');
     }
 }

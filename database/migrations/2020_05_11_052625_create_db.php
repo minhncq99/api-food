@@ -27,11 +27,11 @@ class CreateDb extends Migration
             $table->string('restaurantId', 50)->primary();
             $table->string('name', 100)->nullable();
             $table->date('createdDate');
-            $table->string('status', 10)->nullable();
+            $table->string('status', 50)->nullable();
             $table->string('openTime', 20)->nullable();
             $table->string('closeTime', 20)->nullable();
-            $table->string('managerId');
-            $table->string('typeRestaurantId');
+            $table->string('managerId', 30);
+            $table->string('typeRestaurantId', 50);
             $table->text('note')->nullable();
 
             $table->foreign('managerId')->references('userName')->on('users');
@@ -42,7 +42,7 @@ class CreateDb extends Migration
 
         // Category
         Schema::create('categories', function (Blueprint $table) {
-            $table->string('categoryId')->primary();
+            $table->string('categoryId', 50)->primary();
             $table->string('name', 50)->nullable();
             $table->text('description')->nullable();
             $table->date('createdDate');
@@ -50,16 +50,18 @@ class CreateDb extends Migration
 
             $table->timestamps();
         });
-        
+
         // Dish
         Schema::create('dishes', function (Blueprint $table) {
-            $table->string('dishId')->primary();
+            $table->string('dishId', 50)->primary();
             $table->string('name', 100);
             $table->date('createdDate');
             $table->string('unit', 20)->nullable();
             $table->text('note')->nullable();
-            $table->string('categoryId');
-            $table->string('restaurantId');
+            $table->string('status', 50);
+            $table->bigInteger('price');
+            $table->string('categoryId', 50);
+            $table->string('restaurantId', 50);
 
             $table->foreign('categoryId')->references('categoryId')->on('categories');
             $table->foreign('restaurantId')->references('restaurantId')->on('restaurants');
@@ -69,31 +71,32 @@ class CreateDb extends Migration
 
         // Promotion
         Schema::create('promotions', function (Blueprint $table) {
-            $table->string('promotionId')->primary();
+            $table->string('promotionId', 50)->primary();
             $table->string('name', 100)->nullable();
             $table->integer('amount');
             $table->date('openDate');
             $table->date('closeDate');
             $table->text('note');
-            $table->string('adminId');
+            $table->string('adminId', 30);
 
             $table->foreign('adminId')->references('userName')->on('users');
 
             $table->timestamps();
         });
-        
+
         // Promotion Detail
         Schema::create('promotion_details', function (Blueprint $table) {
-            $table->string('promotionId');
-            $table->string('restaurantId');
-            $table->string('status', 10)->nullable();
+            $table->string('promotionId', 50);
+            $table->string('restaurantId', 50);
+            $table->string('status', 50)->nullable();
             $table->text('note')->nullable();
+            $table->date('createdDate');
 
             $table->primary(['promotionId', 'restaurantId']);
 
             $table->foreign('promotionId')->references('promotionId')->on('promotions');
             $table->foreign('restaurantId')->references('restaurantId')->on('restaurants');
-            
+
             $table->timestamps();
         });
 
@@ -103,25 +106,30 @@ class CreateDb extends Migration
             $table->string('name', 100)->nullable();
             $table->date('createdDate');
             $table->string('phoneNumber', 15)->nullable();
-            $table->string('status', 10)->nullable();
+            $table->string('status', 50)->nullable();
             $table->text('note')->nullable();
-            $table->string('promotionId');
-            $table->string('customerId');
-            $table->string('shipperId');
-            $table->string('adminId');
+            $table->string('promotionId', 30)->nullable();
+            $table->string('customerId', 30);
+            $table->string('shipperId', 30);
+            $table->string('adminId', 30);
+            $table->string('pickUpAddress');
+            $table->string('shipAddresss');
+            $table->bigInteger('shippingCost');
 
             $table->foreign('promotionId')->references('promotionId')->on('promotions');
             $table->foreign('customerId')->references('userName')->on('users');
             $table->foreign('shipperId')->references('userName')->on('users');
             $table->foreign('adminId')->references('userName')->on('users');
-            
+
             $table->timestamps();
         });
 
         //Order Detail
         Schema::create('order_details', function (Blueprint $table) {
             $table->unsignedBigInteger('orderId');
-            $table->string('dishId');
+            $table->string('dishId', 50);
+            $table->integer('amount');
+            $table->date('createdDate');
 
             $table->foreign('orderId')->references('orderId')->on('orders');
             $table->foreign('dishId')->references('dishId')->on('dishes');
@@ -147,7 +155,7 @@ class CreateDb extends Migration
         Schema::dropIfExists('order_details');
         Schema::dropIfExists('orders');
         Schema::dropIfExists('promotion_details');
-        Schema::dropIfExists('promotions');   
+        Schema::dropIfExists('promotions');
         Schema::dropIfExists('dishes');
         Schema::dropIfExists('categories');
         Schema::dropIfExists('restaurants');

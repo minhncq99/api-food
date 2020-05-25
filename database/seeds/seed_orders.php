@@ -13,7 +13,7 @@ class seed_orders extends Seeder
     {
         // order
         for($i = 1; $i <= 5; $i++) {
-            
+
             DB::table('orders')->insert([
                 'name'=> $i .' name',
                 'createdDate' => date_create('now'),
@@ -24,6 +24,9 @@ class seed_orders extends Seeder
                 'customerId'=> '2 userName',
                 'shipperId'=> '3 userName',
                 'adminId'=> '1 userName',
+                'pickUpAddress' => $i .'pickUpAddress',
+                'shipAddresss' => $i .'shipAddresss',
+                'shippingCost' => 100000,
 
                 'note'=> $i .' note',
 
@@ -33,6 +36,8 @@ class seed_orders extends Seeder
             DB::table('order_details')->insert([
                 'orderId' => $i,
                 'dishId'=> $i .' dishId',
+                'amount' => 1000,
+                'createdDate' => date_create('now'),
             ]);
         }
     }

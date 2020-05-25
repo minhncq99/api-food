@@ -22,12 +22,12 @@ class Restaurant extends Model
 
     public function manager()
     {
-        return $this->belongsToMany('App\User', 'managerId');
+        return $this->belongsTo('App\User', 'managerId');
     }
 
     public function typeRestaurant()
     {
-        return $this->belongsToMany('App\TypeRestaurant', 'typeRestaurantId');
+        return $this->belongsTo('App\TypeRestaurant', 'typeRestaurantId');
     }
 
     public function dishes()

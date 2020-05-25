@@ -13,7 +13,7 @@ class seed_promotions extends Seeder
     {
         // promotions
         for($i = 1; $i <= 5; $i++) {
-            
+
             DB::table('promotions')->insert([
                 'promotionId' => $i .' promotionId',
                 'name'=> $i .' name',
@@ -27,6 +27,7 @@ class seed_promotions extends Seeder
             DB::table('promotion_details')->insert([
                 'promotionId' => $i .' promotionId',
                 'restaurantId'=> $i .' restaurantId',
+                'createdDate' => date_create('now'),
                 'status' => 'status',
                 'note'=> $i .' note',
             ]);

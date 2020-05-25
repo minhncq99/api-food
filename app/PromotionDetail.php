@@ -21,10 +21,10 @@ class PromotionDetail extends Model
 
     public function promotions()
     {
-        return $this->belongsToMany('App\Promotion', 'promotionId');
+        return $this->belongsTo('App\Promotion', 'promotionId');
     }
     public function restaurants()
     {
-        return $this->belongsToMany('App\Restaurant', 'retaurantId');
+        return $this->belongsTo('App\Restaurant', 'retaurantId');
     }
 }

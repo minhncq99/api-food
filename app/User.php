@@ -33,7 +33,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+      'remember_token',
     ];
 
     /**
@@ -47,6 +47,15 @@ class User extends Authenticatable
 
     public function typeUser()
     {
-        return $this->belongsToMany('App\TypeUser', 'typeUserId');
+        return $this->belongsTo('App\TypeUser', 'typeUserId');
+    }
+    public function restaurants(){
+      return $this->->hasMany('App\Restaurant');
+    }
+    public function promotions(){
+      return $this->hasMany('App\Promotion');
+    }
+    public function orders(){
+      return $this->hasMany('App\Order');
     }
 }
