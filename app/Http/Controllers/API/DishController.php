@@ -68,6 +68,7 @@ class DishController extends Controller
         }
         return response()->json(['data' => $data, 'error' => $error]);
     }
+
     /**
     * Create User
     */
@@ -96,5 +97,23 @@ class DishController extends Controller
            $error = $ex;
        }
        return response()->json(['data' => $data, 'error' => $error]);
+   }
+
+   /**
+   * Get dish by restaurantId
+   */
+   public function getByRestaurantId(Request $req){
+     try{
+       $data = DB::table('dishes')
+        ->where('restaurantId', $req->restaurantId)
+        ->get();
+
+         $error = null;
+     }
+     catch(Exception $ex){
+         $data = null;
+         $error = $ex;
+     }
+     return response()->json(['data' => $data, 'error' => $error]);
    }
 }

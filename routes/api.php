@@ -94,6 +94,8 @@ Route::prefix('Restaurant')->group(function () {
     //Create
     Route::post('create', 'API\RestaurantController@create');
 
+    //Get by type restaurant name
+    Route::post('get-by-type-restaurant-name', 'API\RestaurantController@getByTypeRestaurantName');
 });
 
 /**
@@ -142,6 +144,9 @@ Route::prefix('Dish')->group(function () {
 
     //Create
     Route::post('create', 'API\DishController@create');
+
+    //Get by Restaurant Id
+    Route::post('get-by-restaurant-id', 'API\DishController@getByRestaurantId');
 
 });
 
