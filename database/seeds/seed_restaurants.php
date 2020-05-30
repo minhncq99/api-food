@@ -32,6 +32,7 @@ class seed_restaurants extends Seeder
                 'managerId' => $i .' userName',
                 'typeRestaurantId' => $i .' typeRestaurantId',
                 'note' => $i .'note',
+                'address' => $i .'address',
             ]);
         }
 

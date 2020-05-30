@@ -33,6 +33,8 @@ class CreateDb extends Migration
             $table->string('managerId', 30);
             $table->string('typeRestaurantId', 50);
             $table->text('note')->nullable();
+            $table->string('address');
+            $table->text('img')->nullable();
 
             $table->foreign('managerId')->references('userName')->on('users');
             $table->foreign('typeRestaurantId')->references('typeRestaurantId')->on('type_restaurants');
@@ -47,6 +49,7 @@ class CreateDb extends Migration
             $table->text('description')->nullable();
             $table->date('createdDate');
             $table->text('note')->nullable();
+            $table->text('img')->nullable();
 
             $table->timestamps();
         });
@@ -62,6 +65,7 @@ class CreateDb extends Migration
             $table->bigInteger('price');
             $table->string('categoryId', 50);
             $table->string('restaurantId', 50);
+            $table->text('img')->nullable();
 
             $table->foreign('categoryId')->references('categoryId')->on('categories');
             $table->foreign('restaurantId')->references('restaurantId')->on('restaurants');
@@ -113,7 +117,7 @@ class CreateDb extends Migration
             $table->string('shipperId', 30);
             $table->string('adminId', 30);
             $table->string('pickUpAddress');
-            $table->string('shipAddresss');
+            $table->string('shipAddress');
             $table->bigInteger('shippingCost');
 
             $table->foreign('promotionId')->references('promotionId')->on('promotions');

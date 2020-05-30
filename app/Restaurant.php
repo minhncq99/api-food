@@ -15,7 +15,8 @@ class Restaurant extends Model
     protected $keyType = 'string';
     //
     protected $fillable = [
-        'restaurantId', 'name', 'createdDate', 'status', 'openTime', 'closeTime', 'managerId', 'typeRestaurantId', 'note'
+        'restaurantId', 'name', 'createdDate', 'status', 'openTime', 'closeTime'
+        , 'managerId', 'typeRestaurantId', 'note', 'address', 'img'
     ];
 
     public $timestamps = false;

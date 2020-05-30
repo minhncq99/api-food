@@ -58,6 +58,7 @@ class DishController extends Controller
                     'price' => $req->price,
                     'categoryId' => $req->categoryId,
                     'restaurantId'=> $req->restaurantId,
+                    'img' => $req->img,
                     ]);
             $error = null;
         }
@@ -84,6 +85,7 @@ class DishController extends Controller
             $data->price = $req->price;
             $data->categoryId = $req->categoryId;
             $data->restaurantId = $req->restaurantId;
+            $data->img = $req->img;
 
             $data->save();
 

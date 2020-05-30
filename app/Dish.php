@@ -15,7 +15,7 @@ class Dish extends Model
 
     protected $keyType = 'string';
     protected $fillable = [
-        'dishId', 'name', 'createdDate', 'unit', 'note', 'categoryId', 'restaurantId'
+        'dishId', 'name', 'createdDate', 'unit', 'note', 'categoryId', 'restaurantId', 'img'
     ];
 
     public function restaurant()

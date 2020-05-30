@@ -14,7 +14,7 @@ class Order extends Model
     protected $fillable = [
         'orderId', 'name', 'createdDate', 'phoneNumber', 'status','note'
         , 'promotionId', 'customerId', 'ShipperId', 'adminId', 'pickUpAddress'
-        , 'shipAddresss', 'shippingCost'
+        , 'shipAddress', 'shippingCost'
     ];
 
     public $timestamps = false;

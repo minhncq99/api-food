@@ -56,7 +56,9 @@ class RestaurantController extends Controller
                     'closeTime' => $req->closeTime,
                     'managerId'=> $req->managerId,
                     'typeRestaurantId' => $req->typeRestaurantId,
-                    'note'=> $req->note
+                    'note'=> $req->note,
+                    'address' => $req->address,
+                    'img' => $req->img,
                     ]);
             $error = null;
         }
@@ -83,6 +85,8 @@ class RestaurantController extends Controller
             $data->managerId = $req->managerId;
             $data->typeRestaurantId = $req->typeRestaurantId;
             $data->note = $req->note;
+            $data->address = $req->address;
+            $data->img = $req->img;
 
             $data->save();
 

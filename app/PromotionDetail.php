@@ -16,7 +16,7 @@ class PromotionDetail extends Model
     protected $keyType = 'string';
     //
     protected $fillable = [
-        'promotionId', 'retaurantId', 'status', 'note'
+        'promotionId', 'retaurantId', 'status', 'note', 'createdDate'
     ];
 
     public function promotions()

@@ -16,7 +16,7 @@ class Category extends Model
     protected $keyType = 'string';
 
     protected $fillable = [
-        'categoryId', 'name', 'description', 'createdDate', 'note'
+        'categoryId', 'name', 'description', 'createdDate', 'note', 'img'
     ];
 
     public $timestamps = false;

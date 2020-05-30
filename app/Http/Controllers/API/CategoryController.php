@@ -52,7 +52,8 @@ class CategoryController extends Controller
                     'name' => $req->name,
                     'description'=> $req->description,
                     'createdDate' => $req->createdDate,
-                    'note'=> $req->note
+                    'note'=> $req->note,
+                    'img' => $req->img,
                     ]);
             $error = null;
         }
@@ -75,6 +76,7 @@ class CategoryController extends Controller
             $data->description = $req->description;
             $data->createdDate = date("Y-m-d H:i:s");
             $data->note = $req->note;
+            $data->img = $req->img;
 
             $data->save();
 

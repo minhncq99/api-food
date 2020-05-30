@@ -26,7 +26,7 @@ class PromotionDetailController extends Controller
     }
 
     /**
-     * Get Promotion Detail by Promotion Detail id 
+     * Get Promotion Detail by Promotion Detail id
      */
     public function getOneByPromotion(Request $req)
     {
@@ -42,7 +42,7 @@ class PromotionDetailController extends Controller
     }
 
     /**
-     * Get Promotion Detail by Restaurant id 
+     * Get Promotion Detail by Restaurant id
      */
     public function getOneByRestaurant(Request $req)
     {
@@ -68,7 +68,8 @@ class PromotionDetailController extends Controller
                 ->where('restaurantId', $req->restaurantId)
                 ->update([
                     'status' => $req->status,
-                    'note' => $req->note
+                    'note' => $req->note,
+                    'createdDate' => $req->createdDate,
                     ]);
             $error = null;
         }
@@ -78,8 +79,8 @@ class PromotionDetailController extends Controller
         }
         return response()->json(['data' => $data, 'error' => $error]);
     }
-    
-    /** 
+
+    /**
     * Create Promotion Detail
     */
    public function create(Request $req)
@@ -91,7 +92,8 @@ class PromotionDetailController extends Controller
             $data->restaurantId = $req->restaurantId;
             $data->status = $req->status;
             $data->note = $req->note;
-            
+            $data->createdDate = date("Y-m-d H:i:s");
+
             $data->save();
 
            $error = null;

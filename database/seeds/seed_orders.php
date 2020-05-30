@@ -25,7 +25,7 @@ class seed_orders extends Seeder
                 'shipperId'=> '3 userName',
                 'adminId'=> '1 userName',
                 'pickUpAddress' => $i .'pickUpAddress',
-                'shipAddresss' => $i .'shipAddresss',
+                'shipAddress' => $i .'shipAddress',
                 'shippingCost' => 100000,
 
                 'note'=> $i .' note',

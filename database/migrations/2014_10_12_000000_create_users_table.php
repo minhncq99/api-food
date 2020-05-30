@@ -32,6 +32,7 @@ class CreateUsersTable extends Migration
             $table->string('typeUserId', 5);
             $table->string('status', 50)->nullable();
             $table->date("createdDate");
+            $table->text("img")->nullable();
 
             $table->foreign('typeUserId')->references('typeUserId')->on('type_user');
 

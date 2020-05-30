@@ -90,7 +90,7 @@ class OrderDetailController extends Controller
             $data->orderId = $req->orderId;
             $data->dishId = $req->dishId;
             $data->amount = $req->amount;
-            $data->createdDate = date("Y-m-d");
+            $data->createdDate = date("Y-m-d H:i:s");
 
             $data->save();
 

@@ -60,7 +60,7 @@ class OrdersController extends Controller
                     'shipperId' => $req->shipperId,
                     'adminId' => $req->adminId,
                     'pickUpAddress' => $req->pickUpAddress,
-                    'shipAddresss' => $req->shipAddresss,
+                    'shipAddress' => $req->shipAddress,
                     'shippingCost' => $req->shippingCost,
                     ]);
             $error = null;
@@ -91,7 +91,7 @@ class OrdersController extends Controller
             $data->shipperId = $req->shipperId;
             $data->adminId = $req->adminId;
             $data->pickUpAddress = $req->pickUpAddress;
-            $data->shipAddresss = $req->shipAddresss;
+            $data->shipAddress = $req->shipAddress;
             $data->shippingCost = $req->shippingCost;
             $data->save();
 

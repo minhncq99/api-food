@@ -75,7 +75,8 @@ class UserController extends Controller
                     'email' => $req->email,
                     'typeUserId' => $req->typeUserId,
                     'status' => $req->status,
-                    'createdDate' => $req->createdDate
+                    'createdDate' => $req->createdDate,
+                    'img' => $req->img,
                     ]);
             $error = null;
         }
@@ -104,6 +105,7 @@ class UserController extends Controller
             $data->typeUserId = $req->typeUserId;
             $data->status = $req->status;
             $data->createdDate = date("Y-m-d");
+            $data->img = $req->img;
 
             $data->save();
 
