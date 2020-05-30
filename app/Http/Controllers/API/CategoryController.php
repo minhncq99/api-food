@@ -62,7 +62,7 @@ class CategoryController extends Controller
         }
         return response()->json(['data' => $data, 'error' => $error]);
     }
-    /** 
+    /**
     * Create User
     */
    public function create(Request $req)
@@ -73,9 +73,9 @@ class CategoryController extends Controller
             $data->categoryId = $req->categoryId;
             $data->name = $req->name;
             $data->description = $req->description;
-            $data->createdDate = $req->createdDate;
+            $data->createdDate = date("Y-m-d H:i:s");
             $data->note = $req->note;
-            
+
             $data->save();
 
            $error = null;

@@ -51,9 +51,11 @@ class DishController extends Controller
                 ->where('dishId', $req->dishId)
                 ->update([
                     'name' => $req->name,
-                    'createdDate'=> $req->createdDate,
+                    'createdDate'=> date("Y-m-d H:i:s"),
                     'unit' => $req->unit,
                     'note'=> $req->note,
+                    'status' => $req->status,
+                    'price' => $req->price,
                     'categoryId' => $req->categoryId,
                     'restaurantId'=> $req->restaurantId,
                     ]);
@@ -65,7 +67,7 @@ class DishController extends Controller
         }
         return response()->json(['data' => $data, 'error' => $error]);
     }
-    /** 
+    /**
     * Create User
     */
    public function create(Request $req)
@@ -78,9 +80,11 @@ class DishController extends Controller
             $data->createdDate = $req->createdDate;
             $data->unit = $req->unit;
             $data->note = $req->note;
+            $data->status = $req->status;
+            $data->price = $req->price;
             $data->categoryId = $req->categoryId;
             $data->restaurantId = $req->restaurantId;
-            
+
             $data->save();
 
            $error = null;

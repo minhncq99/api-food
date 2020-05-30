@@ -82,7 +82,7 @@ class OrdersController extends Controller
             $data = new Order;
 
             $data->name = $req->name;
-            $data->createdDate = $req->createdDate;
+            $data->createdDate = date("Y-m-d H:i:s");
             $data->phoneNumber = $req->phoneNumber;
             $data->status = $req->status;
             $data->note = $req->note;

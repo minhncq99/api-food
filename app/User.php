@@ -50,7 +50,7 @@ class User extends Authenticatable
         return $this->belongsTo('App\TypeUser', 'typeUserId');
     }
     public function restaurants(){
-      return $this->->hasMany('App\Restaurant');
+      return $this->hasMany('App\Restaurant');
     }
     public function promotions(){
       return $this->hasMany('App\Promotion');

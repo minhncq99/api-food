@@ -42,6 +42,22 @@ class UserController extends Controller
     }
 
     /**
+    * Get user by type user
+    */
+    public function getByTypeUser(Request $req)
+    {
+      try{
+          $data = DB::table('users')->where('typeUserId', $req->typeUserId)->get();
+          $error = null;
+      }
+      catch(Exception $ex){
+          $data = null;
+          $error = $ex;
+      }
+      return response()->json(['data' => $data, 'error' => $error]);
+    }
+
+    /**
      * Update User
      */
     public function update(Request $req)
@@ -69,7 +85,7 @@ class UserController extends Controller
         }
         return response()->json(['data' => $data, 'error' => $error]);
     }
-    /** 
+    /**
     * Create User
     */
    public function create(Request $req)
@@ -87,8 +103,8 @@ class UserController extends Controller
             $data->email = $req->email;
             $data->typeUserId = $req->typeUserId;
             $data->status = $req->status;
-            $data->createdDate = $req->createdDate;
-            
+            $data->createdDate = date("Y-m-d");
+
             $data->save();
 
            $error = null;

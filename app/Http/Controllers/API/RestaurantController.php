@@ -66,7 +66,7 @@ class RestaurantController extends Controller
         }
         return response()->json(['data' => $data, 'error' => $error]);
     }
-    /** 
+    /**
     * Create Restaurant
     */
    public function create(Request $req)
@@ -76,14 +76,14 @@ class RestaurantController extends Controller
 
             $data->restaurantId = $req->restaurantId;
             $data->name = $req->name;
-            $data->createdDate = $req->createdDate;
+            $data->createdDate = date("Y-m-d H:i:s");
             $data->status = $req->status;
             $data->openTime = $req->openTime;
             $data->closeTime = $req->closeTime;
             $data->managerId = $req->managerId;
             $data->typeRestaurantId = $req->typeRestaurantId;
             $data->note = $req->note;
-            
+
             $data->save();
 
            $error = null;

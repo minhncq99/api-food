@@ -42,6 +42,9 @@ Route::prefix('Users')->group(function () {
     //Create
     Route::post('create', 'API\UserController@create');
 
+    // Get User by type user
+    Route::post('get-user-by-type-user', 'API\UserController@getByTypeUser');
+
 });
 
 
@@ -245,7 +248,7 @@ Route::prefix('Order')->group(function () {
 
 
 /**
- * Order
+ * Order Detail
  *
  */
 Route::prefix('OrderDetail')->group(function () {
@@ -265,5 +268,8 @@ Route::prefix('OrderDetail')->group(function () {
 
     //Create
     Route::post('create', 'API\OrderDetailController@create');
+
+    //Create
+    Route::post('update', 'API\OrderDetailController@update');
 
 });
