@@ -108,8 +108,30 @@ class RestaurantController extends Controller
        try{
          $data = DB::table('restaurants')
                   ->join('type_restaurants', 'restaurants.typeRestaurantId', '=', 'type_restaurants.typeRestaurantId')
-                  ->where('type_restaurants.name', '=', $req->name)
+                  ->where('type_restaurants.name', 'Like', '%' . $req->name .'%')
                   ->select('restaurants.*')
+                  ->get();
+
+           $error = null;
+       }
+       catch(Exception $ex){
+           $data = null;
+           $error = $ex;
+       }
+       return response()->json(['data' => $data, 'error' => $error]);
+   }
+
+
+   /**
+   * Get restaurant by restaurant name
+   *
+   */
+   public function getByRestaurantName(Request $req)
+   {
+       try{
+         $data = DB::table('restaurants')
+                  ->where('name', 'LIKE', '%' . $req->name .'%')
+                  ->select('*')
                   ->get();
 
            $error = null;

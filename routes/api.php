@@ -96,6 +96,9 @@ Route::prefix('Restaurant')->group(function () {
 
     //Get by type restaurant name
     Route::post('get-by-type-restaurant-name', 'API\RestaurantController@getByTypeRestaurantName');
+
+    //Get by restaurant name
+    Route::post('get-by-restaurant-name', 'API\RestaurantController@getByRestaurantName');
 });
 
 /**
